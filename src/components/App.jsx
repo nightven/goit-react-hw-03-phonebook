@@ -26,16 +26,19 @@ export class App extends Component {
       this.setState({ contacts });
     }
   }
+  
   //update contacts in local storage
   componentDidUpdate(_, prevState) {
     if (prevState.contacts!== this.state.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
+
   //delete contact from local storage
   componentWillUnmount(){
     localStorage.removeItem('contacts');
   }
+
   // delete a contact from state
   onDeleteContact = id => {
     this.setState({
